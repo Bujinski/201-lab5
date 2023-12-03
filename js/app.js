@@ -1,11 +1,4 @@
 'use strict';
-/////////////////////////////////////
-/* Problem 1 (this is your demo that we'll solve in class)
-Write a function called sum() that takes in two numbers as arguments and then returns an array where the first element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this example and uses the values that were input into the function:
-
-"The sum of 4 and 7 is 11."
-
-Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 function sum(a, b) {
   let mySum = a + b;
@@ -16,30 +9,13 @@ function sum(a, b) {
 
 testSum(4, 7);
 
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
-
-/////////////////////////////////////
-/* Problem 2
-Write a function called multiply() that takes in two numbers as arguments and returns an array where the first element is the product of those numbers, and the second element is a string that EXACTLY follows this example and uses the values that were input into the function:
-
-"The product of 5 and 9 is 45."
-
-Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
-
 function multiply(num1, num2) {
   const product = num1 * num2;
   const resultString = `The product of ${num1} and ${num2} is ${product}.`;
   return [product, resultString];
 }
 
-// function multiply(a, b) {
-// }
-
-// Here is the test for multiply(); uncomment it to run it
-
 testMultiply(5,9);
-
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
 /* Problem 3
@@ -53,12 +29,20 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function sumAndMultiply(a, b, c) { //eslint-disable-line
 
+function sumAndMultiply(num1, num2, num3) {
+
+  let sumResult = sum(sum(num1, num2)[0], num3)[0];
+
+  let productResult = multiply(multiply(num1, num2)[0], num3)[0];
+
+  let sumString = `${num1} and ${num2} and ${num3} sum to ${sumResult}.`;
+  let productString = `The product of ${num1} and ${num2} and ${num3} is ${productResult}.`;
+
+  return [sumResult, productResult, sumString, productString];
 }
 
-// Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
