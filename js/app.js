@@ -1,5 +1,7 @@
 'use strict';
 
+// problem 1
+
 function sum(a, b) {
   let mySum = a + b;
   let myStr = `The sum of ${a} and ${b} is ${mySum}.`;
@@ -9,26 +11,17 @@ function sum(a, b) {
 
 testSum(4, 7);
 
+// problem 2
+
 function multiply(num1, num2) {
-  const product = num1 * num2;
-  const resultString = `The product of ${num1} and ${num2} is ${product}.`;
+  let product = num1 * num2;
+  let resultString = `The product of ${num1} and ${num2} is ${product}.`;
   return [product, resultString];
 }
 
 testMultiply(5,9);
 
-/////////////////////////////////////
-/* Problem 3
-Write a function called sumAndMultiply() that takes in three numbers as separate arguments and returns an array where the first element is the sum of those three numbers, the second element is the product of those three numbers,  and the third and fourth elements are strings that EXACTLY follow this example and use the values that were input into the function:
-
-Third element: "4 and 7 and 5 sum to 16."
-Fourth element: "The product of 4 and 7 and 5 is 140."
-
-IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this function. To do addition, use your sum() function, and to do multiplication, use your multiply() function that you've already created. You're going to have to be resourceful to figure out how to do this. However, you may continue to use the + operator for string concatenation.
-
-Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
-
-// Write your code here
+// problem 3
 
 function sumAndMultiply(num1, num2, num3) {
 
@@ -44,9 +37,8 @@ function sumAndMultiply(num1, num2, num3) {
 
 testSumAndMultiply(4,7,5);
 
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
-
 /////////////////////////////////////
+
 /* Problem 4
 Write a function called sumArray() that takes in an array of numbers as its single argument and then returns an array where the first element is the sum of the numbers in the array, and the second element is a string that EXACTLY follows this example and uses the values that were input into the function:
 
@@ -57,15 +49,18 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-let testArray = [2, 3, 4]; //eslint-disable-line
+function sumArray(numbers) {
 
-function sumArray(sumArr) { //eslint-disable-line
+  let sumResult = numbers.reduce((accumulator, currentValue) => sum(accumulator, currentValue)[0], 0);
 
+  let arrayString = `${numbers.join(',')} was passed in as an array of numbers, and ${sumResult} is their sum.`;
+
+  return [sumResult, arrayString];
 }
 
-// Here is the test for sumArray(); uncomment it to run it
+let testArray = [2, 3, 4]; 
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
